@@ -17,5 +17,4 @@ nav:
   - Home: index.md
   - Arrays:
       - Two Sum: Arrays/two_sum.md
-      - Subarray Sum: Arrays/subarray_sum.md
 
