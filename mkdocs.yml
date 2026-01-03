@@ -18,12 +18,4 @@ nav:
   - Arrays:
       - Two Sum: Arrays/two_sum.md
       - Subarray Sum: Arrays/subarray_sum.md
-  - Trees:
-      - Inorder Traversal: Trees/inorder_traversal.md
-      - BST Insert: Trees/bst_insert.md
-  - Graphs:
-      - BFS: Graphs/bfs.md
-      - Dijkstra: Graphs/dijkstra.md
-  - Dynamic Programming:
-      - 0/1 Knapsack: Dynamic Programming/knapsack.md
-      - Longest Increasing Subsequence: Dynamic Programming/lis.md
+
