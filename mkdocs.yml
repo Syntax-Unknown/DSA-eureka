@@ -1,6 +1,6 @@
 site_name: Solutions Gallery
 site_description: Curated C++ DSA solutions with explanations and categories
-repo_url: https://github.com/your-username/your-repo
+repo_url: https://github.com/Syntax-Unknown/DSA-eureka
 theme:
   name: material
   features:
