@@ -3,39 +3,30 @@ name: Build and Deploy Solutions Gallery
 on:
   push:
     branches: [ main ]
-    paths:
-      - "solutions/**/*.cpp"
-      - "scripts/cpp_to_md.py"
-      - "mkdocs.yml"
-      - "docs/**"
 
 jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout
-        uses: actions/checkout@v4
+      - uses: actions/checkout@v4
 
       - name: Set up Python
         uses: actions/setup-python@v5
         with:
           python-version: "3.11"
 
-      - name: Install dependencies
+      - name: Install MkDocs
         run: |
-          python -m pip install --upgrade pip
           pip install mkdocs mkdocs-material
 
-      - name: Generate Markdown from C++
-        run: |
-          python scripts/cpp_to_md.py
-          # Optionally, auto-update mkdocs.yml nav with a script later
+      - name: Generate Markdown
+        run: python scripts/cpp_to_md.py
 
       - name: Build site
         run: mkdocs build --strict
 
-      - name: Deploy to GitHub Pages
+      - name: Deploy
         uses: peaceiris/actions-gh-pages@v3
         with:
-          github_token: ${{ secrets.GITHUB_TOKEN }}
+          github_token: ${{ secrets.GITHUB_TOKEN }}   # works if repo is public
           publish_dir: ./site
