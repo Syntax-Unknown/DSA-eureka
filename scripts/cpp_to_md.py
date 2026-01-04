@@ -29,14 +29,23 @@ def parse_header(code: str):
     return meta
 
 def make_markdown(meta, code):
-    # strip header comments from code block
+    import re
+    from textwrap import dedent
+
+    # Strip only metadata header lines (e.g., // Title: Two Sum)
     code_lines = []
     for line in code.splitlines():
         if re.match(r"//\s*[^:]+:\s*.*", line.strip()):
-            continue
+            continue  # skip metadata
         code_lines.append(line)
+
     cleaned_code = "\n".join(code_lines).strip()
 
+    # Fallback if code block is empty
+    if not cleaned_code:
+        cleaned_code = "// Code block missing or failed to parse"
+
+    # Format Markdown content
     md = dedent(f"""\
     # {meta['Title']}
 
