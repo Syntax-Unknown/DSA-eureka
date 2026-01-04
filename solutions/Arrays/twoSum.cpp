@@ -7,7 +7,7 @@
 // Source: LeetCode 1
 
 #include<iostream>
-#include<vector>
+//#include<vector>
 using namespace std;
 class Solution
 {
